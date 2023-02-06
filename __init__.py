@@ -124,8 +124,15 @@ class Whatsapp_auth: #pylint: disable=invalid-name
 
         except Exception as exc:
             raise exc
+        
+    def get_settings(self):
+        '''
+            Método para obtener los settings de la cuenta
+        '''
+        url = self.url + "settings"
 
-
+        r = requests.get(url, timeout=30)
+        print(r.json())
 
 # Obtengo el modulo que fue invocado
 module = GetParams("module")
@@ -167,6 +174,17 @@ if module == "send_message":
         SetVar(result, send)
     except Exception as e:
         SetVar(result, False)
+        traceback.print_exc()
+        PrintException()
+        raise e
+
+if module == "get_settings":
+
+    try:
+        
+        Connection.get_settings()
+        
+    except Exception as e:
         traceback.print_exc()
         PrintException()
         raise e
