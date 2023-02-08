@@ -60,6 +60,9 @@ class Whatsapp_auth: #pylint: disable=invalid-name
         self.url = f"https://graph.facebook.com/v15.0/{phone_id}/"
         self.valid = None
         self.get_valid()
+        self.headers = {
+                "Authorization": self.api_key
+            }
 
     def get_valid(self):
         '''
@@ -110,12 +113,9 @@ class Whatsapp_auth: #pylint: disable=invalid-name
                 data["text"] = {
                     "body": message
                 }
-                
-            print(data)
 
             r = requests.post(url, headers=headers, json=data, timeout=30)
             j = r.json()
-            print(j)
 
             if j.get('error'):
                 raise Exception(j.get('error').get('message'))
@@ -124,15 +124,7 @@ class Whatsapp_auth: #pylint: disable=invalid-name
 
         except Exception as exc:
             raise exc
-        
-    def get_settings(self):
-        '''
-            Método para obtener los settings de la cuenta
-        '''
-        url = self.url + "settings"
 
-        r = requests.get(url, timeout=30)
-        print(r.json())
 
 # Obtengo el modulo que fue invocado
 module = GetParams("module")
@@ -174,17 +166,6 @@ if module == "send_message":
         SetVar(result, send)
     except Exception as e:
         SetVar(result, False)
-        traceback.print_exc()
-        PrintException()
-        raise e
-
-if module == "get_settings":
-
-    try:
-        
-        Connection.get_settings()
-        
-    except Exception as e:
         traceback.print_exc()
         PrintException()
         raise e
