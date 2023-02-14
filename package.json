@@ -1,8 +1,8 @@
 {
     "author":"Nicolas Garcia",
-    "description": "Módulo para conectarse con la api de Whatsapp Business",
+    "description": "Módulo para conectarse con la api de Whatsapp Business y enviar mensajes de texto o de plantilla",
     "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version":"1.2.0",
+    "version":"1.2.1",
     "license": "MIT",
     "homepage":"http://rocketbot.com",
     "linux": true,
@@ -135,8 +135,8 @@
                 "options":null
             },
             "pr": {
-                "title": "Enviar mensagem de texto ou modelo",
-                "description": "Envia uma mensagem de texto ou de um modelo para um número de Whatsapp",
+                "title": "Enviar mensagem de texto ou template",
+                "description": "Envia uma mensagem de texto ou de um template para um número de Whatsapp",
                 "title_options": "Selecione uma opção",
                 "options":null
             },
@@ -173,17 +173,17 @@
                         "title": {
                             "es": "Plantilla y código de idioma",
                             "en": "Template and language code",
-                            "pr": "Modelo e código de idioma"
+                            "pr": "Template e código de idioma"
                         },
                         "description": {
                             "es": "Plantilla de mensaje y código de idioma que se enviará al número de Whatsapp.",
                             "en": "Message template and language code that will be sent to the Whatsapp number.",
-                            "pr": "Modelo de mensagem e código de idioma que será enviado para o número de Whatsapp."
+                            "pr": "Todelo de mensagem e código de idioma que será enviado para o número de Whatsapp."
                         },
                         "help": {
                             "es": "Plantilla admitida por Meta. Separar valores por coma. Para más información: https://developers.facebook.com/docs/whatsapp/api/messages/message-templates",
                             "en": "Template supported by Meta. Separate values by comma. For more information: https://developers.facebook.com/docs/whatsapp/api/messages/message-templates",
-                            "pr": "Modelo suportado por Meta. Separe os valores por vírgula. Para mais informações: https://developers.facebook.com/docs/whatsapp/api/messages/message-templates"
+                            "pr": "Todelo suportado por Meta. Separe os valores por vírgula. Para mais informações: https://developers.facebook.com/docs/whatsapp/api/messages/message-templates"
                         },
                         "id": "template",
                         "css": "col-md-6"

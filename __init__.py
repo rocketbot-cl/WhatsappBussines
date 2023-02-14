@@ -24,7 +24,6 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 
 """
 
-import json
 import sys
 import os
 import traceback
@@ -43,87 +42,12 @@ whatsapp_libs_path = os.path.join(whatsapp_directory_path, "libs")
 if whatsapp_libs_path not in sys.path:
     sys.path.append(whatsapp_libs_path)
 
-# from whatsapp_business import Whatsapp_auth #pylint: disable=import-error, wrong-import-position, no-name-in-module
+from whatsapp_business import Whatsapp_auth #pylint: disable=import-error, wrong-import-position, no-name-in-module
 
-global Connection #pylint: disable=invalid-name,global-at-module-level
-
-
-import os
-import requests
-
-class Whatsapp_auth: #pylint: disable=invalid-name
-    '''
-        Clase Whatsapp
-    '''
-    def __init__(self, api_key, phone_id):
-        self.api_key = "Bearer " + api_key
-        self.url = f"https://graph.facebook.com/v15.0/{phone_id}/"
-        self.valid = None
-        self.get_valid()
-        self.headers = {
-                "Authorization": self.api_key
-            }
-
-    def get_valid(self):
-        '''
-            Metodo para validar la API Key
-        '''
-        try:
-            url = self.url
-            headers = {
-                "Authorization": self.api_key
-            }
-            r = requests.get(url, headers=headers, timeout=30)
-            j = r.json()
-
-            if j.get('error'):
-                raise Exception(j.get('error').get('message'))
-            else:
-                self.valid = True
+global wsp_Connection #pylint: disable=invalid-name,global-at-module-level
 
 
-        except Exception as exc:
-            raise exc
 
-    def send_message(self, message, phone_number, template=None, code="en_US"):
-        '''
-            Metodo para enviar mensajes
-        '''
-        try:
-            url = self.url + "messages"
-            headers = {
-                "Authorization": self.api_key
-            }
-            data = {
-                "messaging_product": "whatsapp",
-                "to": phone_number,
-                }
-
-            if template:
-                data["type"] = "template"
-                data["template"] = {
-                    "name": template,
-                    "language": {
-                        "code": code
-                    }
-                }
-
-            else:
-                data["type"] = "text"
-                data["text"] = {
-                    "body": message
-                }
-
-            r = requests.post(url, headers=headers, json=data, timeout=30)
-            j = r.json()
-
-            if j.get('error'):
-                raise Exception(j.get('error').get('message'))
-            else:
-                return True
-
-        except Exception as exc:
-            raise exc
 
 
 # Obtengo el modulo que fue invocado
@@ -136,9 +60,9 @@ if module == "conf_whatsapp":
     result = GetParams("result")
 
     try:
-        Connection = Whatsapp_auth(api_key, phone_id)
+        wsp_Connection = Whatsapp_auth(api_key, phone_id)
 
-        SetVar(result, Connection.valid)
+        SetVar(result, wsp_Connection.valid)
     except Exception as e:
         SetVar(result, False)
         PrintException()
@@ -161,7 +85,7 @@ if module == "send_message":
             template = None
             code = None
 
-        send = Connection.send_message(message, phone_number, template, code)
+        send = wsp_Connection.send_message(message, phone_number, template, code)
 
         SetVar(result, send)
     except Exception as e:
