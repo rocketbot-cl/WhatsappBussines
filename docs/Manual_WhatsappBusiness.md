@@ -4,7 +4,7 @@ Module to connect with Whatsapp Business api and send text or template messages
 
 *Read this in other languages: [English](Manual_WhatsappBusiness.md), [Español](Manual_WhatsappBusiness.es.md), [Português](Manual_WhatsappBusiness.pr.md)*
   
-![banner](/docs/imgs/Banner_WhatsappBusiness.png)
+![banner](imgs/Banner_WhatsappBusiness.jpg)
 ## How to install this module
   
 The installation can be:
