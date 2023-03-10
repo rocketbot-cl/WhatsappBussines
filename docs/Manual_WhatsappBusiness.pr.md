@@ -4,7 +4,7 @@ Módulo para se conectar à api Whatsapp Business e enviar mensagens de texto ou
 
 *Read this in other languages: [English](Manual_WhatsappBusiness.md), [Español](Manual_WhatsappBusiness.es.md), [Português](Manual_WhatsappBusiness.pr.md)*
   
-![banner](/docs/imgs/Banner_WhatsappBusiness.png)
+![banner](imgs/Banner_WhatsappBusiness.jpg)
 ## Como instalar este módulo
   
 A instalação pode ser:
