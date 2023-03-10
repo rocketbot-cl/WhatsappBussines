@@ -2,13 +2,14 @@
   
 Module to connect with Whatsapp Business api and send text or template messages
 
-*Read this in other languages: [English](README.md), [Español](README.es.md), [Português](README.pr.md)*
-
+*Read this in other languages: [English](Manual_WhatsappBusiness.md), [Español](Manual_WhatsappBusiness.es.md), [Português](Manual_WhatsappBusiness.pr.md)*
+  
+![banner](/docs/imgs/Banner_WhatsappBusiness.png)
 ## How to install this module
   
 The installation can be:
 1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module name and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh the browser to be able to use the new module.
-2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
 ## How to use this module
@@ -33,30 +34,23 @@ To use this module, you must perform the following configuration:
 18. When assigning the asset, click on __Generate new token__. Select your App and check all permissions from the list (They are not all required but if more integrations are added to Rocketbot in the future you will be able to use the same token). Click on __Generate token__. This will be the permanent token that you will be able to use to authenticate in the module.
 
 
+## Description of the commands
 
-## Overview
-
-
-1. Configure server  
-Configure the Whatsapp API to be able to execute commands
-
-2. Send text message or template  
-Sends a text message or from a template to a Whatsapp number  
-
-
-
-
-----
-### OS
-
-- windows
-- mac
-- linux
-- docker
-
-### Dependencies
-
-### License
+### Configure server
   
-![MIT](https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265)  
-[MIT](http://opensource.org/licenses/mit-license.ph)
+Configure the Whatsapp API to be able to execute commands
+|Parameters|Description|example|
+| --- | --- | --- |
+|API KEY|API KEY obtained in https//developers.facebook.com/|api-key|
+|Phone number identifier|Phone number identifier obtained in https//developers.facebook.com/|116787907958900|
+|Assign result to a variable|Variable where the result will be saved|Variable|
+
+### Send text message or template
+  
+Sends a text message or from a template to a Whatsapp number
+|Parameters|Description|example|
+| --- | --- | --- |
+|Whatsapp number|Whatsapp number to which the message will be sent|5551112222|
+|Template and language code|Message template and language code that will be sent to the Whatsapp number.|hello_world, en_US|
+|Message|Message that will be sent to the Whatsapp number|Hello, how are you?|
+|Assign result to a variable|Variable where the result will be saved|Variable|
