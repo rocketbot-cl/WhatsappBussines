@@ -27,6 +27,7 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 import sys
 import os
 import traceback
+import json
 
 GetParams = GetParams #pylint: disable=undefined-variable,self-assigning-variable
 SetVar = SetVar #pylint: disable=undefined-variable,self-assigning-variable
@@ -73,7 +74,8 @@ if module == "send_message":
     phone_number = GetParams("phone_number")
     full_template = GetParams("template")
     result = GetParams("result")
-
+    template_params = GetParams("template_params")
+    
     try:
         if full_template:
             full_template = full_template.replace(" ", "").split(",")
@@ -85,7 +87,10 @@ if module == "send_message":
             template = None
             code = None
 
-        send = wsp_Connection.send_message(message, phone_number, template, code)
+        if template_params:
+            template_params = json.loads(template_params)
+
+        send = wsp_Connection.send_message(message, phone_number, template, code, template_params)
 
         SetVar(result, send)
     except Exception as e:

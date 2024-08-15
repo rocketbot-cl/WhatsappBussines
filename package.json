@@ -1,8 +1,13 @@
 {
     "author":"Nicolas Garcia",
     "description": "Módulo para conectarse con la api de Whatsapp Business y enviar mensajes de texto o de plantilla",
+    "description_lang":{
+    "en": "This module allows you to connect to the Whatsapp Business API and send text or template messages.",
+    "es": "Este módulo permite conectarse con la api de Whatsapp Business y enviar mensajes de texto o de plantilla.",
+    "pr": "Este módulo permite que você se conecte à API do WhatsApp Business e envie mensagens de texto ou modelos."
+  },
     "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version":"1.2.2",
+    "version":"1.2.3",
     "license": "MIT",
     "homepage":"http://rocketbot.com",
     "linux": true,
@@ -187,6 +192,26 @@
                         },
                         "id": "template",
                         "css": "col-md-6"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
+                            "es": "['1param', '2param']",
+                            "en": "['1param', '2param']",
+                            "pr": "['1param', '2param']"
+                        },
+                        "title": {
+                            "es": "Parametros de Plantilla:",
+                            "en": "Template Params:",
+                            "pr": "Parâmetros do modelo:"
+                        },
+                        "description": {
+                            "es": "Opcional. Indicar el parametro/s mediante una lista ['1param', '2param']",
+                            "en": "Optional. Specify the parameter(s) using a list ['1param', '2param']",
+                            "pr": "Opcional. Indique o(s) parâmetro(s) usando uma lista ['1param', '2param']"
+                        },
+                        "id": "template_params",
+                        "css": "col-md-12"
                     },
                     {
                         "type": "textarea",
