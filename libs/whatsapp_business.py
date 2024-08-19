@@ -62,8 +62,8 @@ class Whatsapp_auth: #pylint: disable=invalid-name
                 }
                 
                 if template_params:
-                    template_params_list = template_params.split(",")
-                    body_parameters = [{"type": "text", "text": param} for param in template_params_list]
+                    # template_params_list = template_params.split(",")
+                    body_parameters = [{"type": "text", "text": param} for param in template_params]
                     data["template"]["components"].append({
                         "type": "body",
                         "parameters": body_parameters
@@ -77,7 +77,6 @@ class Whatsapp_auth: #pylint: disable=invalid-name
 
             r = requests.post(url, headers=headers, json=data, timeout=30)
             j = r.json()
-            print(j)
             if j.get('error'):
                 raise Exception(j.get('error').get('message'))
             else:
