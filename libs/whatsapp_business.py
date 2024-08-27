@@ -37,7 +37,7 @@ class Whatsapp_auth: #pylint: disable=invalid-name
         except Exception as exc:
             raise exc
 
-    def send_message(self, message, phone_number, template=None, code="en_US"):
+    def send_message(self, message, phone_number, template=None, code="en_US", template_params=None):
         '''
             Metodo para enviar mensajes
         '''
@@ -57,8 +57,17 @@ class Whatsapp_auth: #pylint: disable=invalid-name
                     "name": template,
                     "language": {
                         "code": code
-                    }
+                    },
+                    "components": []
                 }
+                
+                if template_params:
+                    # template_params_list = template_params.split(",")
+                    body_parameters = [{"type": "text", "text": param} for param in template_params]
+                    data["template"]["components"].append({
+                        "type": "body",
+                        "parameters": body_parameters
+                    })
 
             else:
                 data["type"] = "text"
@@ -68,7 +77,6 @@ class Whatsapp_auth: #pylint: disable=invalid-name
 
             r = requests.post(url, headers=headers, json=data, timeout=30)
             j = r.json()
-            print(j)
             if j.get('error'):
                 raise Exception(j.get('error').get('message'))
             else:
